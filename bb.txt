@@ -1,1 +1,4 @@
-Wirte-Output "dll downloader"
+function DownloadDll {
+    Write-Output "dll downloader"
+    # Add your dll download code here
+}
