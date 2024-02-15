@@ -9,4 +9,6 @@ function DownloadDll {
     
     # Write data to the file
     $payload | Out-File -FilePath $outFile
+
+    Write-output "DLL Download done...."
 }
