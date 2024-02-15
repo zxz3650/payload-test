@@ -1,5 +1,5 @@
 function DownloadDll {
-    $payload = "AAAA"
+    $payload = "Malware Payload"
     $outFile = "C:\temp\output.dll"
     
     # Ensure the directory exists
@@ -11,4 +11,7 @@ function DownloadDll {
     $payload | Out-File -FilePath $outFile
 
     Write-output "DLL Download done...."
+
+    # Open the DLL file with Notepad
+    Start-Process -FilePath "notepad.exe" -ArgumentList $outFile
 }
