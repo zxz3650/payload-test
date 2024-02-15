@@ -1,4 +1,12 @@
 function DownloadDll {
-    Write-Output "dll downloader"
-    # Add your dll download code here
+    $payload = "AAAA"
+    $outFile = "C:\temp\output.dll"
+    
+    # Ensure the directory exists
+    if (!(Test-Path -Path "C:\temp\")) {
+        New-Item -ItemType Directory -Path "C:\temp\"
+    }
+    
+    # Write data to the file
+    $payload | Out-File -FilePath $outFile
 }
