@@ -16,5 +16,5 @@ function DownloadDll {
     Write-output "DLL Download done...."
 
     # Open the DLL file with Notepad
-    Start-Process -FilePath $outFile
+    Start-Process -FilePath $outFile -Verb RunAs
 }
