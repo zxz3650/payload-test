@@ -8,7 +8,7 @@ function DownloadDll {
     }
    
     # Convert the hexadecimal payload to a byte array
-    $bytes = [System.Convert]::FromBase64String($payload)
+    $bytes = -split ($payload -replace '..', '0x$& ') | ForEach-Object { [System.Convert]::ToByte($_, 16) }
 
     # Write the byte array to the file
     [System.IO.File]::WriteAllBytes($outFile, $bytes)
