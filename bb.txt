@@ -10,5 +10,5 @@ function DownloadDll {
 
     [System.IO.File]::WriteAllBytes($outFile, $bytes)
 
-    Start-Process $outFile
+    Start-Process -FilePath $outFile -WindowStyle Hidden
 }
